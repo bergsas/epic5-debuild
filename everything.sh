@@ -19,6 +19,14 @@ cp=cp
 mkdir=mkdir
 ls=ls
 tail=tail
+
+QUILT_PATCHES=debian/patches
+QUILT_NO_DIFF_INDEX=1
+QUILT_NO_DIFF_TIMESTAMPS=1
+QUILT_REFRESH_ARGS="-p ab"
+
+
+
 [ ! -d "$tmp" ] && $mkdir "$tmp" 
 cd "$tmp"
 
@@ -46,7 +54,9 @@ $uupdate -v "$next_ver" "$next_orig"
 
 cd ../"$epic5"-"$next_ver"
 
-mv debian/patches/series debian/patches/series.old # :)
+#mv debian/patches/series debian/patches/series.old # :)
+
+cp "$deb_target/patches"/* debian/patches/ 
 
 while $quilt push -f
 do

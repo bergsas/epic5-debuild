@@ -1,0 +1,58 @@
+Index: epic5-1.1.2/include/config.h
+===================================================================
+--- epic5-1.1.2.orig/include/config.h	2010-05-01 10:56:40.000000000 +0200
++++ epic5-1.1.2/include/config.h	2010-05-01 10:56:49.000000000 +0200
+@@ -41,7 +41,7 @@
+  *  the client will NOT compile and work properly!  Use the default here if
+  *  you dont have other servers to use.
+  */
+-#define DEFAULT_SERVER "localhost irc.efnet.net irc.undernet.org irc.dal.net"
++#define DEFAULT_SERVER "irc.debian.org irc.efnet.net irc.undernet.org irc.dal.net"
+ 
+ /*
+  * This is an experimental feature to thwart infinite recursion.  It is not
+@@ -222,7 +222,7 @@
+  * hostname:portnum:password (with the portnum and password being
+  * optional).  This server list will supercede the DEFAULT_SERVER
+  */
+-#define SERVERS_FILE "ircII.servers"
++#define SERVERS_FILE "/etc/epic5/servers"
+ 
+ /*
+  * The compile sequence records the user/host/time of the compile,
+@@ -242,7 +242,7 @@
+  * format of what the default load path is to be.  The %s format indicates
+  * the runtime IRCLIB value.  This value is only used at startup time.
+  */
+-#define DEFAULT_IRCPATH "~/.epic:~/.irc:%s/script:."
++#define DEFAULT_IRCPATH ".:~/.epic:~/.irc:/usr/local/share/epic5/script:%s/script"
+ 
+ #define IMPLIED_ON_HOOKS
+ 
+@@ -262,7 +262,7 @@
+ #define DEFAULT_BEEP_MAX 3
+ #define DEFAULT_BLINK_VIDEO 1
+ #define	DEFAULT_BOLD_VIDEO 1
+-#define DEFAULT_CHANNEL_NAME_WIDTH 0
++#define DEFAULT_CHANNEL_NAME_WIDTH 16
+ #define DEFAULT_CLOCK 1
+ #define DEFAULT_CLOCK_24HOUR 0
+ #define DEFAULT_CLOCK_FORMAT NULL
+@@ -298,7 +298,7 @@
+ #define DEFAULT_FLOOD_WARNING 0
+ #define DEFAULT_HIDE_PRIVATE_CHANNELS 0
+ #define DEFAULT_HIGHLIGHT_CHAR "BOLD"
+-#define DEFAULT_HIGH_BIT_ESCAPE 2
++#define DEFAULT_HIGH_BIT_ESCAPE 0
+ #define DEFAULT_HOLD_SLIDER 100
+ #define DEFAULT_INDENT 0
+ #define DEFAULT_INPUT_INDICATOR_LEFT "+ "
+@@ -422,7 +422,7 @@
+ #define DEFAULT_USER_INFORMATION "EPIC5 -- Into the abyss"
+ #define DEFAULT_WORD_BREAK ".,; \t"
+ #define DEFAULT_WSERV_TYPE "screen"
+-#define DEFAULT_XTERM "xterm"
++#define DEFAULT_XTERM "x-terminal-emulator"
+ #define DEFAULT_XTERM_OPTIONS NULL
+ 
+ /*

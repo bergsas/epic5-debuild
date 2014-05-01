@@ -1,0 +1,171 @@
+Index: epic5-1.1.2/doc/epic.1
+===================================================================
+--- epic5-1.1.2.orig/doc/epic.1	2010-05-01 08:52:29.000000000 +0000
++++ epic5-1.1.2/doc/epic.1	2010-05-01 08:52:34.000000000 +0000
+@@ -1,10 +1,10 @@
+ .Dd April 22, 1999
+ .Dt EPIC 1
+ .Sh NAME
+-.Nm epic
++.Nm epic5
+ .Nd Internet Relay Chat client for UNIX like systems
+ .Sh SYNOPSIS
+-.Nm epic
++.Nm epic5
+ .Op Ar \-a
+ .Op Ar \-b
+ .Op Ar \-B
+@@ -142,19 +142,20 @@
+ If you don't want your users to spoof their usernames, install identd, and do everyone on IRC a favor.
+ .It nickname
+ The first bare word found is taken as the default nickname to use.  
+-This overrides all other options, including the -n option and the 
++This overrides all other options, including the \-n option and the 
+ .Ev IRCNICK 
+ environment variable.  
+ If all else fails, then the client uses your login name as the default nickname.
+ .It server,[server]
+ After the nickname, a list of one or more server specifications can be listed.
+-Unless you specify the -a option, this will replace your default server list!
+-The -a option forces any servers listed here to be appended to the default server list.
++Unless you specify the \-a option, this will replace your default server list!
++The \-a option forces any servers listed here to be appended to the default server list.
+ The format for server specifications is:
+ .sp
+ .Dl hostname:port:password:nick
+ .sp
+ Any item can be omitted by leaving the field blank, and any trailing colons can also be omitted.
++.El
+ .Sh "DETAILED DESCRIPTION"
+ .Ss "The Screen:"
+ The screen is split into two parts, separated by an inverse-video status line (if supported).
+@@ -164,16 +165,16 @@
+ The lower part of the screen (a single line) accepts keyboard input.
+ .sp
+ Some terminals do not support certain features required by
+-.Nm epic
++.Nm epic5
+ , in which case you receive a message stating this.
+ If this occurs, try changing the terminal type or run
+-.Nm epic
+-with the -d option.
++.Nm epic5
++with the \-d option.
+ .Ss "Irc Commands:"
+ Any line beginning with the slash character 
+ .Dq /
+ is regarded as an
+-.Nm epic
++.Nm epic5
+ command (the command character may be changed).  
+ Any line not beginning with this character is treated as a message to be sent to the current channel.
+ The client has a built in help system.  
+@@ -182,7 +183,7 @@
+ to open up the help system.
+ .Ss "The .ircrc File:"
+ When
+-.Nm epic
++.Nm epic5
+ is executed, it checks the user's home directory for a
+ .Pa ~/.ircrc 
+ file, executing the commands in the file. 
+@@ -191,42 +192,44 @@
+ This allows predefinition of aliases and other features.
+ .Sh PRACTICAL EXAMPLES
+ Certainly any description of 
+-.Nm epic 
++.Nm epic5 
+ in this man page will be sorely inadequate because most of the confusion doesn't even start until after you get the client to connect to a server.  
+ But if you really have problems getting the client to connect to a server, try some of these:
+-.Bl -tag -width "epic"
+-.It Nm epic
++.Bl -tag -width "epic5"
++.It Nm epic5
+ Try this first.  
+ This will assume all the defaults.  
+-If the person who is maintaining epic at your site has done a halfway decent job, this will put you on a server that is somewhat local to you. 
+-.It Nm "epic nickname irc.domain.com"
++If the person who is maintaining epic5 at your site has done a halfway decent job, this will put you on a server that is somewhat local to you. 
++.It Nm "epic5 nickname irc.domain.com"
+ or something similar will attempt to connect to the irc server running on the host "irc.domain.com" (fill in a real irc server here) with the nickname of well, "nickname".  
+ This is the most common way to specify an alternate server to use.
+-.It Nm "epic nickname irc.domain.com:6664"
++.It Nm "epic5 nickname irc.domain.com:6664"
+ Sometimes, some servers are really busy, and it can take them a long time to establish a connection with you on the default port (6667).  
+ Most major servers on big public networks accept connections on many different ports, with the most common being most or all of the ports between 6660 and 6675.
+ You can usually connect much faster if you use a port other than 6667, if the server you're connecting to supports an alternate port.
+-.It Nm "epic nickname irc.efnet.net"
++.It Nm "epic5 nickname irc.efnet.net"
+ If you're totally stumped and trying to get on efnet, try this.
+-.It Nm "epic nickname irc.undernet.org"
++.It Nm "epic5 nickname irc.undernet.org"
+ If you're totally stumped and trying to get on undernet, try this.
+-.It Nm "epic nickname irc.dal.net"
++.It Nm "epic5 nickname irc.dal.net"
+ If you're totally stumped and trying to get on dalnet, try this.
++.El
+ .Sh "FILES"
+-.Bl -tag -width "/usr/local/share/epic"
+-.It Nm /usr/local/bin/epic
++.Bl -tag -width "/usr/share/epic5"
++.It Nm /usr/bin/epic5
+ the default location of the binary
+ .It Nm ~/.ircrc
+ default initialization file
+ .It Nm ~/.irc/
+ directory you can put your own
+-.Nm epic
++.Nm epic5
+ scripts into, that can then be loaded with /load
+-.It Nm /usr/local/share/epic
++.It Nm /usr/share/epic5
+ default directory containing message-of-the-day, master initialization, 
+ help files and 
+-.Nm epic
++.Nm epic5
+ scripts
++.El
+ .Sh "THE HELP FILES"
+ Starting up the client is the easy part.  
+ Once you get connected, you'll probably find you have no idea what you're doing.
+@@ -251,7 +254,7 @@
+ .Pa <http://www.irchelp.org/>
+ Lots of great help for new irc users.
+ .Sh "SIGNALS"
+-.Nm epic
++.Nm epic5
+ handles the following signals gracefully
+ .Pp
+ .TP
+@@ -259,6 +262,7 @@
+ .It SIGUSR1
+ Closes all DCC connections and EXEC'd processes.
+ .Pp
++.El
+ .Sh "ENVIRONMENT VARIABLES"
+ It can be helpful to predefine certain variables in in the
+ .Pa ~/.cshrc
+@@ -281,6 +285,7 @@
+ .Pa /etc/password
+ .It Ev TERM     
+ The type of terminal emulation to use
++.El
+ .Sh "SEE ALSO"
+ .Xr ircd 8
+ .Sh BUGS
+@@ -298,13 +303,13 @@
+ The online documentation probably should be in docbook form rather than
+ in the current help format.  The entire help system is a hack.
+ 
+-This manual page only describes the options to epic, but doesn't tell
++This manual page only describes the options to epic5, but doesn't tell
+ you what to do once you get connected.
+ .Sh AUTHORS
+ Program written by Michael Sandrof (ms5n+@andrew.cmu.edu).
+ The copyright holder is Matthew Green (mrg@mame.mu.oz.au).
+ This software is maintained by EPIC Software Labs (list@epicsol.org).
+-
++.PP
+ At one time or another, this man page has been edited by Darren Reed,
+ R.P.C. Rodgers, the lynX, Matthew Green, and EPIC Software Labs.
+ .\" end of man page

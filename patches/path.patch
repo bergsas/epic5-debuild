@@ -1,0 +1,13 @@
+Index: epic5-1.1.2/Makefile.in
+===================================================================
+--- epic5-1.1.2.orig/Makefile.in	2010-05-01 08:52:27.000000000 +0000
++++ epic5-1.1.2/Makefile.in	2010-05-01 08:52:35.000000000 +0000
+@@ -128,7 +128,7 @@
+ 			$(MV) $(IP)$(DESTDIR)$(EPIC_LINK) $(IP)$(DESTDIR)$(EPIC_OLD); \
+ 		fi; \
+ 		$(RM) $(IP)$(DESTDIR)$(EPIC_LINK); \
+-		ln -s $(epic5)-$(VERSION) $(IP)$(DESTDIR)$(EPIC_LINK); \
++		mv -f $(IP)$(EPIC) $(IP)$(DESTDIR)$(EPIC_LINK); \
+ 	fi
+ 
+ #
